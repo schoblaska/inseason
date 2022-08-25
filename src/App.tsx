@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import states from "./data/states";
 import "./App.css";
 
 function App() {
   const [stateKey, setStateKey] = useState("IL");
-  const stateKeys = Object.keys(states);
+  const data = require("./data.json");
+  const stateKeys = Object.keys(data);
 
   return (
     <div>
