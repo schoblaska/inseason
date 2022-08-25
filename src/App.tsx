@@ -3,8 +3,8 @@ import states from "./data/states";
 import "./App.css";
 
 function App() {
-  const [selectedState, setSelectedState] = useState("IL");
-  const stateAbbreviations = Object.keys(states).map((a) => a.toUpperCase());
+  const [stateKey, setStateKey] = useState("IL");
+  const stateKeys = Object.keys(states);
 
   return (
     <div>
@@ -17,18 +17,18 @@ function App() {
       </a>
       <div className="container">
         <div className="header-image">
-          <img src={`/images/headers/${selectedState.toLowerCase()}.png`} />
+          <img src={`/images/headers/${stateKey.toLowerCase()}.png`} />
         </div>
         <div className="controls">
           <form id="controls">
             <input className="search" type="text" placeholder="search" />
             <select
               className="state-selector"
-              value={selectedState}
-              onChange={(e) => setSelectedState(e.target.value)}
+              value={stateKey}
+              onChange={(e) => setStateKey(e.target.value)}
             >
-              {stateAbbreviations.map((abbrev) => (
-                <option value={abbrev}>{abbrev}</option>
+              {stateKeys.map((key) => (
+                <option value={key}>{key}</option>
               ))}
             </select>
           </form>
