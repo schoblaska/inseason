@@ -28,7 +28,9 @@ function App() {
               onChange={(e) => setStateKey(e.target.value)}
             >
               {stateKeys.map((key) => (
-                <option value={key}>{key}</option>
+                <option key={key} value={key}>
+                  {key}
+                </option>
               ))}
             </select>
           </form>
