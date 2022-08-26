@@ -30,11 +30,15 @@ const seasonBars = (seasons: number[][]) => {
   );
 };
 
-const Crops = ({ crops }: { crops: any }) => {
+const Crops = ({ crops, search }: { crops: any; search: string }) => {
+  const filteredCrops = crops.filter(
+    (c: any) => search.length === 0 || c[0].match(search)
+  );
+
   return (
     <table>
       <tbody>
-        {crops
+        {filteredCrops
           .sort((a: any, b: any) => (a[0] < b[0] ? -1 : 1)) // sort alphabetically
           .map((crop: any) => (
             <tr key={crop[0]}>

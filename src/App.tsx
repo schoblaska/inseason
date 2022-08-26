@@ -10,6 +10,7 @@ import "./App.css";
 
 function App() {
   const [stateKey, setStateKey] = useState("IL");
+  const [search, setSearch] = useState("");
   const data = useMemo(() => require("./data.json"), []);
   const stateKeys = Object.keys(data);
   const crops = data[stateKey]["crops"];
@@ -20,12 +21,14 @@ function App() {
       <div className="container">
         <Header stateKey={stateKey} />
         <Controls
+          stateKeys={stateKeys}
           stateKey={stateKey}
           setStateKey={setStateKey}
-          stateKeys={stateKeys}
+          search={search}
+          setSearch={setSearch}
         />
       </div>
-      <Crops crops={crops} />
+      <Crops crops={crops} search={search} />
       <Footer />
     </div>
   );
