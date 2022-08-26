@@ -5,3 +5,4 @@
 * attempt to geocode visitor if they land on root page
 * search
 * group / sort by seasonality
+* refactor Crops component and add typing
