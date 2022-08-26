@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 
 import Controls from "./components/Controls";
 import GithubBanner from "./components/GithubBanner";
@@ -8,7 +8,7 @@ import "./App.css";
 
 function App() {
   const [stateKey, setStateKey] = useState("IL");
-  const data = require("./data.json");
+  const data = useMemo(() => require("./data.json"), []);
   const stateKeys = Object.keys(data);
 
   return (
